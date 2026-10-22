@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>InAmigos Foundation | Small Acts, Real Change</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --green: #245b45; --green-light: #eaf2ec; --cream: #fbfaf6; --ink: #24312a; --muted: #66736b; --orange: #e9a65b; }
+    html { scroll-behavior: smooth; }
+    body { font-family: Arial, Helvetica, sans-serif; background: var(--cream); color: var(--ink); line-height: 1.65; }
+    a { color: inherit; }
+    .top-note { background: var(--green); color: #fff; text-align: center; padding: 8px 14px; font-size: 13px; letter-spacing: .2px; }
+    header { display: flex; justify-content: space-between; align-items: center; gap: 18px; padding: 18px 7%; background: #fff; border-bottom: 1px solid #e8ebe6; }
+    .brand { display: flex; align-items: center; gap: 10px; text-decoration: none; font-weight: 700; color: var(--green); font-size: 20px; }
+    .brand-mark { display: grid; place-items: center; width: 39px; height: 39px; border-radius: 50%; background: var(--green-light); font-size: 21px; }
+    nav { display: flex; flex-wrap: wrap; gap: 20px; align-items: center; }
+    nav a { font-size: 14px; text-decoration: none; color: #46534b; }
+    nav a:hover { color: var(--green); }
+    .nav-cta, .btn { display: inline-block; background: var(--green); color: #fff; padding: 11px 18px; border-radius: 7px; text-decoration: none; font-size: 14px; font-weight: 700; }
+    .hero { display: grid; grid-template-columns: 1.05fr .95fr; gap: 40px; align-items: center; padding: 65px 7% 70px; }
+    .eyebrow { color: #9b672f; text-transform: uppercase; letter-spacing: 2px; font-size: 12px; font-weight: 700; margin-bottom: 14px; }
+    h1 { font-size: clamp(36px, 5vw, 58px); line-height: 1.12; letter-spacing: -1.8px; color: #203d30; margin-bottom: 20px; }
+    .hero p { max-width: 520px; color: var(--muted); font-size: 17px; margin-bottom: 25px; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; }
+    .btn.secondary { background: transparent; color: var(--green); border: 1px solid #a8b9ac; }
+    .hero-image { position: relative; }
+    .hero-image img { width: 100%; height: 390px; object-fit: cover; border-radius: 18px; display: block; }
+    .image-note { position: absolute; bottom: 16px; left: 16px; right: 16px; background: rgba(255,255,255,.94); border-radius: 10px; padding: 13px 16px; font-size: 13px; color: #405047; }
+    section { padding: 60px 7%; }
+    .section-heading { max-width: 650px; margin: 0 auto 32px; text-align: center; }
+    .section-heading h2 { color: #203d30; font-size: clamp(27px, 3vw, 36px); margin-bottom: 10px; letter-spacing: -.6px; }
+    .section-heading p { color: var(--muted); }
+    .about { background: #fff; }
+    .about-grid { display: grid; grid-template-columns: .9fr 1.1fr; gap: 42px; align-items: center; max-width: 1100px; margin: auto; }
+    .about-grid img { width: 100%; height: 300px; object-fit: cover; border-radius: 14px; }
+    .about-copy h2 { font-size: 31px; color: #203d30; line-height: 1.25; margin-bottom: 14px; }
+    .about-copy p { color: var(--muted); margin-bottom: 13px; }
+    .small-label { display: inline-block; color: var(--green); background: var(--green-light); padding: 5px 10px; border-radius: 30px; font-size: 12px; font-weight: 700; margin-bottom: 12px; }
+    .projects { background: #f2f5ef; }
+    .project-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; max-width: 1120px; margin: auto; }
+    .project-card { background: #fff; border: 1px solid #e6ebe4; border-radius: 13px; overflow: hidden; transition: transform .2s ease, box-shadow .2s ease; }
+    .project-card:hover { transform: translateY(-4px); box-shadow: 0 10px 24px rgba(35, 65, 48, .08); }
+    .project-card img { width: 100%; height: 165px; object-fit: cover; display: block; }
+    .project-text { padding: 19px; }
+    .project-text h3 { color: var(--green); font-size: 19px; margin-bottom: 8px; }
+    .project-text p { color: var(--muted); font-size: 14px; }
+    .impact-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; max-width: 1000px; margin: auto; }
+    .impact-item { text-align: center; padding: 22px 16px; }
+    .impact-icon { font-size: 28px; margin-bottom: 8px; }
+    .impact-item h3 { font-size: 18px; color: #254d3b; margin-bottom: 7px; }
+    .impact-item p { font-size: 14px; color: var(--muted); }
+    .callout { background: #244f3c; color: white; text-align: center; padding: 56px 7%; }
+    .callout h2 { font-size: clamp(28px, 4vw, 39px); margin-bottom: 12px; }
+    .callout p { color: #e1ebe3; max-width: 620px; margin: 0 auto 22px; }
+    .callout .btn { background: var(--orange); color: #27392e; }
+    .sources { background: #fff; text-align: center; padding-top: 28px; padding-bottom: 28px; }
+    .sources p { color: var(--muted); font-size: 13px; margin-bottom: 8px; }
+    .sources a { color: var(--green); font-size: 13px; margin: 0 8px; }
+    footer { background: #1b3327; color: #e9f0eb; padding: 25px 7%; display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; font-size: 13px; }
+    footer a { color: #f2c98e; }
+    @media (max-width: 800px) {
+      header { align-items: flex-start; flex-direction: column; padding: 16px 5%; }
+      nav { gap: 12px; }
+      .hero, .about-grid { grid-template-columns: 1fr; }
+      .hero { padding: 42px 5%; gap: 28px; }
+      .hero-image img { height: 280px; }
+      section { padding: 46px 5%; }
+      .project-grid { grid-template-columns: repeat(2, 1fr); }
+      .about-grid img { height: 250px; }
+    }
+    @media (max-width: 520px) {
+      .project-grid, .impact-grid { grid-template-columns: 1fr; }
+      .project-card img { height: 190px; }
+      h1 { letter-spacing: -1px; }
+      .nav-cta { padding: 8px 12px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="top-note">InAmigos Foundation · Uniting minds for change</div>
+  <header>
+    <a class="brand" href="#home"><span class="brand-mark">🌱</span><span>InAmigos Foundation</span></a>
+    <nav aria-label="Main navigation">
+      <a href="#about">About</a>
+      <a href="#projects">Our Projects</a>
+      <a href="#impact">Why It Matters</a>
+      <a href="#join" class="nav-cta">Get Involved</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div>
+        <div class="eyebrow">Small actions can make a difference</div>
+        <h1>One community.<br>Many ways to care.</h1>
+        <p>Change does not always start with something big. Sometimes it starts with a book shared, a meal offered, a tree planted, or a helping hand. InAmigos Foundation works towards a more caring and inclusive society.</p>
+        <div class="hero-actions">
+          <a class="btn" href="#projects">Explore our work</a>
+          <a class="btn secondary" href="https://www.inamigosfoundation.org.in/" target="_blank" rel="noopener">Official website ↗</a>
+        </div>
+      </div>
+      <div class="hero-image">
+        <img src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?auto=format&fit=crop&w=1100&q=85" alt="Children learning together">
+        <div class="image-note">Education, care and opportunity can help communities grow stronger.</div>
+      </div>
+    </section>
+
+    <section class="about" id="about">
+      <div class="about-grid">
+        <img src="https://images.unsplash.com/photo-1559027615-cd4628902d4a?auto=format&fit=crop&w=1000&q=85" alt="Volunteers working together in a community">
+        <div class="about-copy">
+          <span class="small-label">About the foundation</span>
+          <h2>Making kindness useful through action.</h2>
+          <p>InAmigos Foundation is a non-profit organisation based in Bilaspur, Chhattisgarh. Its work focuses on community development and social empowerment, with an emphasis on education, support for women, animal care, environmental awareness and help for people in need.</p>
+          <p>The foundation's message is simple: when people contribute their time, skills and care, small efforts can become meaningful support for others.</p>
+          <p><strong>Our purpose:</strong> to encourage a society where people have more opportunities to learn, grow and live with dignity.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="projects" id="projects">
+      <div class="section-heading">
+        <div class="eyebrow">What the initiatives focus on</div>
+        <h2>Six projects, one shared purpose</h2>
+        <p>Each initiative responds to a different need. Together, they encourage compassion, learning and a healthier environment.</p>
+      </div>
+      <div class="project-grid">
+        <article class="project-card">
+          <img src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?auto=format&fit=crop&w=800&q=80" alt="Children taking part in learning activities">
+          <div class="project-text"><h3>Bachpanshala</h3><p>Supports children through learning opportunities and educational resources, helping them build confidence and a stronger foundation for the future.</p></div>
+        </article>
+        <article class="project-card">
+          <img src="https://images.unsplash.com/photo-1593113598332-cd288d649433?auto=format&fit=crop&w=800&q=80" alt="Volunteers helping distribute essential supplies">
+          <div class="project-text"><h3>Seva</h3><p>Focuses on helping people in need through essentials such as food and clothing, while promoting dignity and community support.</p></div>
+        </article>
+        <article class="project-card">
+          <img src="https://images.unsplash.com/photo-1548199973-03cce0bbc87b?auto=format&fit=crop&w=800&q=80" alt="Dogs receiving care">
+          <div class="project-text"><h3>Jeev</h3><p>Promotes care and compassion for animals, including support for animals that need food, protection or help.</p></div>
+        </article>
+        <article class="project-card">
+          <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=800&q=80" alt="Woman participating in a professional learning activity">
+          <div class="project-text"><h3>Udaan</h3><p>Encourages women's empowerment through skills, resources and opportunities that can support greater confidence and independence.</p></div>
+        </article>
+        <article class="project-card">
+          <img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=800&q=80" alt="Green trees in a natural environment">
+          <div class="project-text"><h3>Prakriti</h3><p>Promotes environmental responsibility through tree planting, awareness and everyday actions that help protect nature.</p></div>
+        </article>
+        <article class="project-card">
+          <img src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=800&q=80" alt="Young people learning and working together">
+          <div class="project-text"><h3>Vikas</h3><p>Focuses on youth development and skill-building, helping young people explore their abilities and prepare for future opportunities.</p></div>
+        </article>
+      </div>
+    </section>
+
+    <section id="impact">
+      <div class="section-heading">
+        <div class="eyebrow">Why this work matters</div>
+        <h2>A little support can go a long way</h2>
+        <p>These initiatives connect with everyday needs and long-term goals. Their value can be seen in the opportunities and care they encourage.</p>
+      </div>
+      <div class="impact-grid">
+        <div class="impact-item"><div class="impact-icon">📚</div><h3>More chances to learn</h3><p>Educational support can help children develop knowledge, confidence and hope for the future.</p></div>
+        <div class="impact-item"><div class="impact-icon">🤝</div><h3>Stronger communities</h3><p>Volunteering and practical support bring people together and help respond to local needs.</p></div>
+        <div class="impact-item"><div class="impact-icon">🌿</div><h3>Care for every life</h3><p>Environmental awareness and animal welfare remind us to care for the world we share.</p></div>
+      </div>
+    </section>
+
+    <section class="callout" id="join">
+      <h2>Be part of a positive change.</h2>
+      <p>You do not need to do everything. Start with what you can do: learn about the cause, volunteer your skills, support an initiative, or share reliable information with others.</p>
+      <a class="btn" href="https://www.inamigosfoundation.org.in/" target="_blank" rel="noopener">Visit InAmigos Foundation ↗</a>
+    </section>
+
+    <section class="sources">
+      <p><strong>Learn more from the organisation:</strong></p>
+      <a href="https://www.inamigosfoundation.org.in/" target="_blank" rel="noopener">Official website</a>
+      <a href="https://in.linkedin.com/company/inamigos-foundation" target="_blank" rel="noopener">LinkedIn updates</a>
+      <p style="margin-top:10px">Awareness page created for educational purposes. Photos are illustrative and are not presented as photographs of specific InAmigos activities.</p>
+    </section>
+  </main>
+
+  <footer>
+    <span>© 2026 · InAmigos Foundation Awareness Page</span>
+    <span>#InAmigos · #CommunityDevelopment · #SocialImpact</span>
+  </footer>
+</body>
+</html>
